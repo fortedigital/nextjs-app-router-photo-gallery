@@ -1,20 +1,13 @@
 import Image from "next/image";
-import { getData } from "./(utils)/getData";
 import Link from "next/link";
 import blurHashToDataURL from "./(utils)/decodeBlur";
+import { getTenImages } from "./(utils)/getTenImages";
 
 export default async function Home() {
-  const data = await getData<
-    {
-      id: string;
-      blur_hash: string;
-      urls: { [k: string]: any };
-      alt_description: string;
-    }[]
-  >("/photos/random?count=10&orientation=portrait");
+  const images = await getTenImages();
   return (
     <main className="flex min-h-screen items-center justify-between flex-wrap px-8">
-      {data.map(({ id, blur_hash, urls, alt_description }) => {
+      {images.map(({ id, blur_hash, urls, alt_description }) => {
         const blurDataUrl = blurHashToDataURL(blur_hash, 32, 32);
         return (
           <Link
