@@ -6,7 +6,7 @@ import { getTenImages } from "./(utils)/getTenImages";
 export default async function Home() {
   const images = await getTenImages();
   return (
-    <main className="flex min-h-screen items-center justify-between flex-wrap px-8">
+    <main className="flex items-center justify-between flex-wrap px-8">
       {images.map(({ id, blur_hash, urls, alt_description }) => {
         const blurDataUrl = blurHashToDataURL(blur_hash, 32, 32);
         return (

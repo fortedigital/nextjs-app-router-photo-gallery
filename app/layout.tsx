@@ -18,7 +18,7 @@ export default function RootLayout({
   modal: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="min-h-screen">
       <body className={inter.className}>
         <NavBar />
         {children}
