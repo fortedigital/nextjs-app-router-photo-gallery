@@ -7,4 +7,7 @@ export const getImageById = (id: string) =>
     urls: { [k: string]: any };
     description: string;
     alt_description: string;
+    user: {
+      name: string;
+    };
   }>(`/photos/${id}`);
